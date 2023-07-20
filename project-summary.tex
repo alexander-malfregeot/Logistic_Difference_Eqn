@@ -1,0 +1,37 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%                                   %
+% project-summary.tex               %
+% raw LaTeX of the summary document %
+%                                   %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\documentclass{article}
+\usepackage{graphicx} % Required for inserting images
+\title{8.1 Project Summary}
+\author{Alexander Malfregeot}
+\date{July 2023}
+\begin{document}
+\maketitle
+
+\section*{Introduction}
+\subsection*{What is the logistic difference equation?}
+The \textbf{logistic difference equation} $p_{n+1}=kp_n(1-p_n)$ is the formula for a sequence used by ecologists to study the population of a given species. $p_n$ represents the population of the $n^{th}$ generation of a given species as a proportion $0 \leq p_n \leq 1$, where $0$ is the minimum size and $1$ the maximum. $k$ is a constant representing the conditions which affect the mating and death cycles of the given species. For our purposes, $0 \leq k \leq 4$, as anything larger than $4$ breaks the range restriction of $p_n$ by such a wide margin that it causes \textit{signed integer overflow} in the calculator.
+\subsection*{How is it different from the logistic differential equation?}
+The logistic difference equation is the discrete counterpart to the \textbf{logistic differential equation} ${dP\over dt}=k(1-{P\over M})$ which is also used to model the population of a given species. The \textbf{difference} equation is better suited to species whose populations follow a cyclical mating and death cycle, such as species of insects. The \textbf{differential} equation is expressed as a function and better suited to species whose populations level out at some limit, such as the human population.
+\subsection*{Goal of the project}
+This project aims to observe the behavior of the sequence given different values and ranges of values for $p_0$ and $k$. The behavior of the sequence in Part 4 is especially interesting, because the unpredictability of the sequence is similar to that of fractals like the \textbf{Mandelbrot Set}.
+\section*{Part 1: $1 < k < 3$}
+When $k$ is within the range described in Part 1's header, the value of $p_0$ has little effect on the sequence as $n \rightarrow \infty$. The sequence will always converge at some arbitrary number depending on $k$, and the graph will \textit{sort of} resemble the graph of a function from the logistic differential equation, with the key difference being that the sequence will 'oscillate' for some number of terms before converging. See the Jupyter Notebook for examples.
+\section*{Part 2: $3 < k < 3.4$}
+When $k$ is within the range described in Part 2's header, the sequence takes on a pattern of regular oscillations after $p_0$. The graph is analogous to a trig function like sine or cosine, as it predictably oscillates between a set high and low value into perpetuity, with the sequence diverging as a result. See the Jupyter Notebook for examples.
+\section*{Part 3: $3.4 < k < 3.5$}
+When $k$ is within the range described in Part 3's header, things start to get weird. As $k \rightarrow 3.5$, the 'oscillating' quality remains, and it still diverges, but it becomes staggered. Check Part 3 of the Jupyter notebook, and what I mean by 'staggered' might become clearer. The oscillations switch from a 'long oscillation' (as in the difference between $p_{n+1}$ and $p_n$ is greater), and a 'short oscillation' (where the difference is smaller), roughly every three terms. The choice of $p_0$ has little bearing on the pattern as $n \rightarrow \infty$.
+\section*{Part 4: $3.6 < k < 4$}
+When $k$ is within the range described in Part 4's header, all hell breaks loose. The behavior of the sequence becomes totally unpredictable, or \textbf{chaotic} as the book describes it. If I had to \textit{guess}, I would guess that it diverges, but since the behavior is totally unpredictable, whether the sequence diverges or converges is unknown. Unlike the Parts 1 through 3, the value of $p_0$ has seemingly widespread ramifications across the sequence as $n \rightarrow \infty$. Check the Jupyter Notebook for examples. 
+\section*{Conclusion}
+\subsection*{Mandelbrot set parallels}
+The \textbf{Mandelbrot Set}, whose common formula is expressed as $Z_{n+1}={Z_n}^2+k$, is possibly the most famous example of a fractal. See Notebook for pictures. Generally, a fractal is a shape with an infinite complexity, and whose behavior cannot be predicted. Despite the complexity and unpredictability, patterns still emerge all over the place in fractals. The same thing could be said about the sequence when $k$ is within the range of Part 4. For small parts of the sequence, there do seem to be patterns. In the notebook, I point out little clusters that line up in some of the graphs to make a 'knife edge' pattern.
+\subsection*{How does this connect to insect populations?}
+Based solely on the behavior of the sequences I observed, I would infer that the \textit{chaotic} behavior might arise when some sort of unpredictable change occurs in the ecosystem, such as human activities, invasive species, natural disaster, etc. Maybe when an insect fulfills the role in a niche in the ecosystem, the more predictable the pattern might be. I'm no aspiring ecologist, so its anyone's guess!
+\subsection*{Final thoughts}
+Through this project, I was able to explore the behavior of the logistic difference equation, and implement a computer program to generate basic visual representations of it. I hope you had fun messing around with it! Thank you!
+\end{document}
